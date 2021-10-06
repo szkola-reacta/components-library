@@ -2,14 +2,22 @@
   "name": "@szkola-reacta/components-library",
   "version": "1.0.0",
   "description": "My awesome components library",
-  "main": "index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/esm/index.d.ts",
   "repository": "https://github.com/szkola-reacta/components-library",
   "author": "Patryk Omiotek <patryk.omiotek@gmail.com>",
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/react": "^6.3.10",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
+    "babel-loader": "^8.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.4.3"
@@ -17,5 +25,13 @@
   "peerDependecies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "dependencies": {},
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs -outDir lib/cjs",
+    "build": "yarn build:esm && yarn build:cjs"
   }
 }
